@@ -78,3 +78,20 @@ p{
     line-height:1.7;
     opacity:.85;
 }
+
+/* ─── Mobile ─── */
+@media (max-width: 640px) {
+  .premium-section { padding: 56px 16px; }
+  .section-title { font-size: 28px; }
+  .section-subtitle { font-size: 14px; margin-bottom: 32px; }
+  .premium-grid,
+  .service-grid,
+  .station-grid,
+  .news-grid-premium { grid-template-columns: 1fr; gap: 16px; }
+  .premium-card,
+  .service-card,
+  .station-box,
+  .news-card-premium { padding: 20px; border-radius: 18px; }
+  .service-card span { font-size: 32px; margin-bottom: 12px; }
+  .news-banner { height: 140px; }
+}
