@@ -1,0 +1,218 @@
+/* ════════════════════════════════════════
+   AZENERGY — ANIMATIONS
+════════════════════════════════════════ */
+
+/* ─── Reveal on scroll ─── */
+.reveal-up,
+.reveal-left,
+.reveal-right {
+  opacity: 0;
+  transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+              transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.reveal-up { transform: translateY(48px); }
+.reveal-left { transform: translateX(-48px); }
+.reveal-right { transform: translateX(48px); }
+
+.reveal-up.visible,
+.reveal-left.visible,
+.reveal-right.visible {
+  opacity: 1;
+  transform: translate(0);
+}
+
+/* ─── Delay classes ─── */
+.delay-1 { transition-delay: 0.1s !important; }
+.delay-2 { transition-delay: 0.2s !important; }
+.delay-3 { transition-delay: 0.35s !important; }
+.delay-4 { transition-delay: 0.5s !important; }
+
+/* Hero specific — always visible but animate in */
+.hero .reveal-up {
+  animation: heroRevealUp 0.9s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  opacity: 0;
+}
+
+.hero .delay-1 { animation-delay: 0.25s; }
+.hero .delay-2 { animation-delay: 0.4s; }
+.hero .delay-3 { animation-delay: 0.55s; }
+.hero .delay-4 { animation-delay: 0.7s; }
+
+@keyframes heroRevealUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ─── Parallax layer ─── */
+.parallax-layer {
+  will-change: transform;
+}
+
+/* ─── Shimmer effect ─── */
+.shimmer {
+  position: relative;
+  overflow: hidden;
+}
+
+.shimmer::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    105deg,
+    transparent 30%,
+    rgba(255,255,255,0.04) 50%,
+    transparent 70%
+  );
+  transform: translateX(-100%);
+  animation: shimmer 3s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0%   { transform: translateX(-100%); }
+  50%  { transform: translateX(100%); }
+  100% { transform: translateX(100%); }
+}
+
+/* ─── Number counter animation ─── */
+.counting {
+  animation: countPop 0.3s ease;
+}
+
+@keyframes countPop {
+  0%   { transform: scale(1); }
+  50%  { transform: scale(1.06); }
+  100% { transform: scale(1); }
+}
+
+/* ─── Card entrance ─── */
+@keyframes cardEntrance {
+  from {
+    opacity: 0;
+    transform: translateY(24px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* ─── Floating elements ─── */
+@keyframes floatY {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+.float-anim {
+  animation: floatY 4s ease-in-out infinite;
+}
+
+/* ─── Gradient border animation ─── */
+@keyframes gradientBorder {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ─── Glow breathe ─── */
+@keyframes glowBreathe {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(46,125,232,0.2), 0 0 40px rgba(46,125,232,0.1);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(46,125,232,0.4), 0 0 80px rgba(46,125,232,0.2);
+  }
+}
+
+/* ─── Page transitions ─── */
+.page-transition {
+  animation: pageFadeIn 0.5s ease;
+}
+
+@keyframes pageFadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ─── Spin ─── */
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ─── Form success ─── */
+@keyframes successPop {
+  0%   { transform: scale(0.8); opacity: 0; }
+  60%  { transform: scale(1.05); }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.form-success {
+  animation: successPop 0.5s ease forwards;
+}
+
+/* ─── Typing cursor ─── */
+.cursor-blink {
+  animation: cursorBlink 1s step-end infinite;
+}
+
+@keyframes cursorBlink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* ─── Subtle map ping ─── */
+@keyframes mapPing {
+  0% { transform: scale(1); opacity: 0.8; }
+  80% { transform: scale(2.5); opacity: 0; }
+  100% { transform: scale(2.5); opacity: 0; }
+}
+
+.map-ping {
+  animation: mapPing 2s ease-out infinite;
+}
+
+/* ─── Gradient text shimmer ─── */
+@keyframes gradTextMove {
+  0%   { background-position: 0% center; }
+  100% { background-position: 200% center; }
+}
+
+.grad-text-anim {
+  background-size: 200% auto;
+  animation: gradTextMove 4s linear infinite;
+}
+
+/* ─── Timeline item reveal ─── */
+.tl-item {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.tl-item.tl-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ─── Progress bar animation ─── */
+.etb-fill.animated {
+  /* width set via JS */
+}
+
+/* ─── Nav link underline slide ─── */
+.nav-link {
+  position: relative;
+  overflow: hidden;
+}
+
+/* ─── Section dividers ─── */
+.section-pad {
+  position: relative;
+}
+
+/* ─── Hover card tilt (via JS) ─── */
+.tilt-card {
+  transform-style: preserve-3d;
+  transition: transform 0.15s ease-out;
+}
